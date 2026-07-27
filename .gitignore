@@ -1,0 +1,40 @@
+```
+# Dependencies
+backend/venv/
+backend/.venv/
+backend/__pycache__/
+backend/.mypy_cache/
+backend/.pytest_cache/
+
+# Build artifacts
+backend/dist/
+backend/build/
+backend/target/
+
+# Environment files
+.env
+.env.local
+*.env.*
+
+# Logs
+*.log
+
+# Editor/IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*.tmp
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Coverage reports
+coverage/
+htmlcov/
+.coverage
+
+# Alembic
+backend/alembic/versions/*.py
+```
