@@ -16,6 +16,7 @@ from api.v1.routes import (
     projects,
     teams,
     health,
+    agents,
 )
 
 
@@ -68,4 +69,10 @@ api_router.include_router(
     teams.router,
     prefix="/teams",
     tags=["Hackathon Teams"],
+)
+
+api_router.include_router(
+    agents.router,
+    prefix="/agents",
+    tags=["AI Agents"],
 )

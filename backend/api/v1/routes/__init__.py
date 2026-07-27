@@ -13,6 +13,7 @@ from api.v1.routes import (
     code_reviews,
     projects,
     teams,
+    agents,
 )
 
 __all__ = [
@@ -24,4 +25,5 @@ __all__ = [
     "code_reviews",
     "projects",
     "teams",
+    "agents",
 ]

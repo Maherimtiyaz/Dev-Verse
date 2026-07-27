@@ -80,6 +80,7 @@ class Settings(BaseSettings):
         default="http://localhost:8000/api/v1/auth/github/callback",
         description="GitHub OAuth redirect URI"
     )
+    GITHUB_TOKEN: Optional[str] = Field(default=None, description="GitHub personal access token")
     
     # Celery
     CELERY_BROKER_URL: Optional[str] = Field(
