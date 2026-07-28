@@ -12,9 +12,9 @@ from typing import Any, Dict, List, Optional
 from fastapi import APIRouter, Depends, HTTPException, status, BackgroundTasks
 from pydantic import BaseModel, Field
 
-from backend.api.dependencies import get_current_user
-from backend.models import User
-from backend.agents import (
+from api.dependencies import CurrentUser, DbSession
+from models import User
+from agents import (
     GitHubAnalyzerAgent,
     CodeReviewAgent,
     ProjectRecommendationAgent,

@@ -6,7 +6,7 @@ Uses UUID primary keys and proper relationships.
 """
 
 from datetime import datetime, timezone
-from typing import Optional, List
+from typing import Optional, List, Any
 from uuid import UUID, uuid4
 
 from sqlalchemy import (
@@ -296,6 +296,7 @@ class Project(Base):
         comment="active/completed/archived"
     )
     embedding: Mapped[Optional[List[float]]] = mapped_column(
+        JSONB,
         nullable=True,
         comment="Vector embedding for semantic search"
     )

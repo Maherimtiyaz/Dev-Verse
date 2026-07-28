@@ -7,8 +7,10 @@ Integrates with OpenTelemetry for observability.
 
 import logging
 import sys
+import uuid
 from typing import Any, Dict
 from contextvars import ContextVar
+from fastapi import Request
 
 import structlog
 from core.config import settings
@@ -26,6 +28,21 @@ def get_correlation_id() -> str:
 def set_correlation_id(correlation_id: str) -> None:
     """Set the correlation ID for the current context."""
     correlation_id_var.set(correlation_id)
+
+
+async def correlation_id_middleware(request: Request, call_next):
+    """
+    Middleware to add correlation ID to each request.
+    
+    Generates a unique ID for tracking requests across services.
+    """
+    correlation_id = request.headers.get("X-Correlation-ID", str(uuid.uuid4()))
+    set_correlation_id(correlation_id)
+    
+    response = await call_next(request)
+    response.headers["X-Correlation-ID"] = correlation_id
+    
+    return response
 
 
 class CorrelationIdFilter(logging.Filter):
