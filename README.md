@@ -87,7 +87,7 @@ Spin up the entire stack (DB, Redis, Qdrant, Backend, Frontend) in one command:
 
 ```bash
 # Clone the repo
-git clone https://github.com/your-org/devverse-ai.git
+git clone https://github.com/Maherimtiyaz/Dev-Verse
 cd devverse-ai
 
 # Copy environment variables
